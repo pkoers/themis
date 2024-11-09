@@ -4,5 +4,6 @@ class PagesController < ApplicationController
     file = File.read('./storage/history.json')
     puts "Converting JSON File"
     data_hash = JSON.parse(file)
+    puts data_hash['header']['msgversion']
   end
 end
