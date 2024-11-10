@@ -9,7 +9,7 @@ class PagesController < ApplicationController
     data = JSON.parse(file, symbolize_names: true)
     # Grabbing the Flight Details
     @flight_details = FlightDetails(data_hash)
-    puts RegoChanges(data)
+    @rego_changes = RegoChanges(data)
   end
 
   def FlightDetails(data_hash)
@@ -17,7 +17,7 @@ class PagesController < ApplicationController
     flight = data_hash['criteria']['flightNumber']
     date = DateTime.parse(data_hash['criteria']['flightDate']).to_date.strftime("%d%^b")
     origin = data_hash['criteria']['boardpoint']
-    return "#{carrier}#{flight}/#{date} Origin:#{origin}"
+    return "#{carrier}#{flight}/#{date} Origin: #{origin}"
   end
 
   def RegoChanges(data_hash)

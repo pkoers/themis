@@ -1,1 +1,7 @@
-<h1> <%= @flight_details %> </h1>
+<center><h1> <%= @flight_details %> </h1></center>
+<h2> Registration History </h2>
+<ol>
+  <% @rego_changes.each do |rego|%>
+    <li><%= rego %></li>
+  <% end %>
+</ol>
